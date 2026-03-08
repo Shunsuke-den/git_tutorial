@@ -13,7 +13,7 @@
     }
     header {
       background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #fff;ß
+      color: #fff;
       padding: 24px 16px;
       text-align: center;
       box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
@@ -95,6 +95,48 @@
       font-size: 0.85rem;
       margin-top: 4px;
     }
+    .command-block {
+      display: block;
+      background: #111827;
+      color: #e5e7eb;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.9rem;
+      margin: 8px 0 12px;
+      overflow-x: auto;
+    }
+    .step {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid #2563eb;
+    }
+    .step h4 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: #1d4ed8;
+    }
+    .step p {
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+    .step p:last-child {
+      margin-bottom: 0;
+    }
+    .workflow-intro {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      background: #eff6ff;
+      border-radius: 8px;
+      border: 1px solid #bfdbfe;
+    }
     footer {
       text-align: center;
       padding: 16px;
@@ -108,14 +150,6 @@
     <h1>Gitチュートリアル</h1>
     <p>このページでは、Gitの基本コマンドとワークフローをざっくり確認できます。</p>
   </header>
-
-  <nav>
-    <a href="index.html">ホーム</a>
-    <a href="home.html">home.html のページ</a>
-    <a href="feature.html">feature のページ</a>
-    <a href="feature2.html">feature2 のページ</a>
-    <a href="master2.html">master2 のページ</a>
-  </nav>
 
   <main>
     <section>
@@ -172,6 +206,70 @@
           <p>この一連の流れを「GitHub Flow」と呼びます。</p>
         </article>
       </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">3. このチュートリアルで使った流れ（GitHubにプッシュまで）</h2>
+      <p class="section-subtitle">チャットで実際に実行したコマンドを、手順の順番で習得できます。</p>
+
+      <p class="workflow-intro">
+        初めてのリポジトリや「fatal: not a git repository」が出たときは、<strong>1. リポジトリの準備</strong>から。すでに Git が使える状態なら <strong>2. 変更をステージング</strong> から始めましょう。
+      </p>
+
+      <div class="step">
+        <h4>1. 現在の状態を確認する</h4>
+        <p>まず、今いるフォルダが Git 管理されているか、どんな変更があるかを確認します。</p>
+        <code class="command-block">git status</code>
+        <p>「fatal: not a git repository」と出た場合は、このフォルダにはまだ Git が入っていません。次の「リポジトリの準備」へ。</p>
+      </div>
+
+      <div class="step">
+        <h4>2. リポジトリを用意する（必要なときだけ）</h4>
+        <p>初めてこのフォルダで Git を使うときや、.git が壊れているときは、新しくリポジトリを作ります。</p>
+        <code class="command-block">git init</code>
+        <p>「Initialized empty Git repository in ...」と出ればOK。以降、<code class="command">git status</code> が使えるようになります。</p>
+      </div>
+
+      <div class="step">
+        <h4>3. 変更をステージングする</h4>
+        <p>コミットに含めたいファイルを「ステージング」します。全部まとめて追加する場合は次のコマンドです。</p>
+        <code class="command-block">git add -A</code>
+        <p>特定のファイルだけ追加する場合:</p>
+        <code class="command-block">git add index.html</code>
+        <p><code class="command">git status</code> で「Changes to be committed」にファイルが出ていれば成功です。</p>
+      </div>
+
+      <div class="step">
+        <h4>4. コミットする</h4>
+        <p>ステージングした内容を、ひとまとまりの履歴として保存します。<code>-m</code> のあとにメッセージを書きます。</p>
+        <code class="command-block">git commit -m "最初のホームページを作成"</code>
+        <p>「1 file changed」のように表示されれば、コミット完了です。</p>
+      </div>
+
+      <div class="step">
+        <h4>5. ブランチ名を確認する（プッシュ前に）</h4>
+        <p>GitHub にプッシュするとき、通常は <code class="command">main</code> または <code class="command">master</code> ブランチを使います。どちらか確認します。</p>
+        <code class="command-block">git branch</code>
+        <p><code>* main</code> なら main、<code>* master</code> なら master にプッシュします。</p>
+      </div>
+
+      <div class="step">
+        <h4>6. リモート（GitHub）を登録する</h4>
+        <p>GitHub でリポジトリを作成したあと、その URL を「origin」という名前で登録します。</p>
+        <code class="command-block">git remote add origin https://github.com/あなたのユーザー名/git_tutorial.git</code>
+        <p>※「あなたのユーザー名」と「git_tutorial」は、自分の GitHub のユーザー名とリポジトリ名に置き換えます。すでに登録済みの場合は不要です。</p>
+      </div>
+
+      <div class="step">
+        <h4>7. GitHub にプッシュする</h4>
+        <p>ローカルのコミットを GitHub に送ります。<code>-u origin main</code> で「今後は origin の main にプッシュする」と覚えさせます。</p>
+        <code class="command-block">git push -u origin main</code>
+        <p>ブランチが <code class="command">master</code> の場合は <code class="command-block" style="margin-top:4px;">git push -u origin master</code> にします。</p>
+      </div>
+
+      <p class="section-subtitle" style="margin-top: 24px;">
+        この流れができれば、ファイルの更新 → <code class="command">git add -A</code> → <code class="command">git commit -m "メッセージ"</code> → <code class="command">git push</code> の繰り返しで、いつでも GitHub を更新できます。
+      </p>
     </section>
   </main>
 
