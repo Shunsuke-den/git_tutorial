@@ -15,10 +15,12 @@
     </div>
   </header>
 
-  <nav>
-    <a href="#commands">よく使うコマンド</a>
-    <a href="#collaboration">コラボレーション</a>
-    <a href="#workflow">実践ワークフロー</a>
+  <nav aria-label="ページ内ナビゲーション">
+    <ul>
+      <li><a href="#commands">よく使うコマンド</a></li>
+      <li><a href="#collaboration">コラボレーション</a></li>
+      <li><a href="#workflow">実践ワークフロー</a></li>
+    </ul>
   </nav>
 
   <main>
@@ -32,24 +34,24 @@
 
       <div class="card-grid">
         <article class="card">
-          <span class="card-icon">🔍</span>
+          <span class="card-icon" aria-hidden="true">🔍</span>
           <h3>現在の状態を確認する</h3>
           <p>変更されたファイルやコミットされていないファイルを確認します。</p>
-          <span class="command">git status</span>
+          <code class="command">git status</code>
         </article>
 
         <article class="card">
-          <span class="card-icon">📄</span>
+          <span class="card-icon" aria-hidden="true">📄</span>
           <h3>差分を確認する</h3>
           <p>どの行が変更されたか、コミット前に確認します。</p>
-          <span class="command">git diff</span>
+          <code class="command">git diff</code>
         </article>
 
         <article class="card">
-          <span class="card-icon">✏️</span>
+          <span class="card-icon" aria-hidden="true">✏️</span>
           <h3>直前のコミットを修正する</h3>
           <p>コミットメッセージの修正やファイルの追加漏れに使います。</p>
-          <span class="command">git commit --amend</span>
+          <code class="command">git commit --amend</code>
         </article>
       </div>
     </section>
@@ -64,27 +66,27 @@
 
       <div class="card-grid">
         <article class="card">
-          <span class="card-icon">⬇️</span>
+          <span class="card-icon" aria-hidden="true">⬇️</span>
           <h3>リモートの変更を取り込む</h3>
           <p>GitHub上の最新の変更をローカルに取り込みます。</p>
-          <span class="command">git pull</span>
+          <code class="command">git pull</code>
         </article>
 
         <article class="card">
-          <span class="card-icon">🔀</span>
+          <span class="card-icon" aria-hidden="true">🔀</span>
           <h3>ブランチをマージする</h3>
           <p>別ブランチで行った作業を現在のブランチに統合します。</p>
-          <span class="command">git merge</span>
+          <code class="command">git merge</code>
         </article>
 
         <article class="card">
-          <span class="card-icon">⚡</span>
+          <span class="card-icon" aria-hidden="true">⚡</span>
           <h3>コンフリクト（競合）</h3>
           <p>同じ場所を複数人が編集したときに発生する「競合」のことです。マージ時に手動で解決します。</p>
         </article>
 
         <article class="card">
-          <span class="card-icon">🚀</span>
+          <span class="card-icon" aria-hidden="true">🚀</span>
           <h3>Pull Request と GitHub Flow</h3>
           <p>ブランチで作業 → PR作成 → レビュー → マージ、という一連の流れを「GitHub Flow」と呼びます。</p>
         </article>
@@ -107,7 +109,10 @@
         <span class="step-label">Step 1</span>
         <h4>現在の状態を確認する</h4>
         <p>まず、今いるフォルダが Git 管理されているか、どんな変更があるかを確認します。</p>
-        <code class="command-block">git status</code>
+        <div class="command-wrapper">
+          <code class="command-block">git status</code>
+          <button class="copy-btn" aria-label="コマンドをコピー">Copy</button>
+        </div>
         <p>「fatal: not a git repository」と出た場合は、このフォルダにはまだ Git が入っていません。次のステップへ進みましょう。</p>
       </div>
 
@@ -115,7 +120,10 @@
         <span class="step-label">Step 2</span>
         <h4>リポジトリを用意する（必要なときだけ）</h4>
         <p>初めてこのフォルダで Git を使うときや、<code class="command">.git</code> が壊れているときは、新しくリポジトリを作ります。</p>
-        <code class="command-block">git init</code>
+        <div class="command-wrapper">
+          <code class="command-block">git init</code>
+          <button class="copy-btn" aria-label="コマンドをコピー">Copy</button>
+        </div>
         <p>「Initialized empty Git repository in ...」と出ればOK。以降、<code class="command">git status</code> が使えるようになります。</p>
       </div>
 
@@ -123,9 +131,15 @@
         <span class="step-label">Step 3</span>
         <h4>変更をステージングする</h4>
         <p>コミットに含めたいファイルを「ステージング」します。全部まとめて追加する場合:</p>
-        <code class="command-block">git add -A</code>
+        <div class="command-wrapper">
+          <code class="command-block">git add -A</code>
+          <button class="copy-btn" aria-label="コマンドをコピー">Copy</button>
+        </div>
         <p>特定のファイルだけ追加する場合:</p>
-        <code class="command-block">git add index.html</code>
+        <div class="command-wrapper">
+          <code class="command-block">git add index.html</code>
+          <button class="copy-btn" aria-label="コマンドをコピー">Copy</button>
+        </div>
         <p><code class="command">git status</code> で「Changes to be committed」にファイルが出ていれば成功です。</p>
       </div>
 
@@ -133,7 +147,10 @@
         <span class="step-label">Step 4</span>
         <h4>コミットする</h4>
         <p>ステージングした内容を、ひとまとまりの履歴として保存します。<code class="command">-m</code> のあとにメッセージを書きます。</p>
-        <code class="command-block">git commit -m "最初のホームページを作成"</code>
+        <div class="command-wrapper">
+          <code class="command-block">git commit -m "最初のホームページを作成"</code>
+          <button class="copy-btn" aria-label="コマンドをコピー">Copy</button>
+        </div>
         <p>「1 file changed」のように表示されれば、コミット完了です。</p>
       </div>
 
@@ -141,7 +158,10 @@
         <span class="step-label">Step 5</span>
         <h4>ブランチ名を確認する（プッシュ前に）</h4>
         <p>GitHub にプッシュするとき、通常は <code class="command">main</code> または <code class="command">master</code> ブランチを使います。どちらか確認します。</p>
-        <code class="command-block">git branch</code>
+        <div class="command-wrapper">
+          <code class="command-block">git branch</code>
+          <button class="copy-btn" aria-label="コマンドをコピー">Copy</button>
+        </div>
         <p><code class="command">* main</code> なら main、<code class="command">* master</code> なら master にプッシュします。</p>
       </div>
 
@@ -149,7 +169,10 @@
         <span class="step-label">Step 6</span>
         <h4>リモート（GitHub）を登録する</h4>
         <p>GitHub でリポジトリを作成したあと、その URL を「origin」という名前で登録します。</p>
-        <code class="command-block">git remote add origin https://github.com/あなたのユーザー名/git_tutorial.git</code>
+        <div class="command-wrapper">
+          <code class="command-block">git remote add origin https://github.com/あなたのユーザー名/git_tutorial.git</code>
+          <button class="copy-btn" aria-label="コマンドをコピー">Copy</button>
+        </div>
         <p>※「あなたのユーザー名」と「git_tutorial」は自分のものに置き換えます。すでに登録済みの場合は不要です。</p>
       </div>
 
@@ -157,7 +180,10 @@
         <span class="step-label">Step 7</span>
         <h4>GitHub にプッシュする</h4>
         <p>ローカルのコミットを GitHub に送ります。<code class="command">-u origin main</code> で「今後は origin の main にプッシュする」と覚えさせます。</p>
-        <code class="command-block">git push -u origin main</code>
+        <div class="command-wrapper">
+          <code class="command-block">git push -u origin main</code>
+          <button class="copy-btn" aria-label="コマンドをコピー">Copy</button>
+        </div>
         <p>ブランチが <code class="command">master</code> の場合は <code class="command">git push -u origin master</code> にします。</p>
       </div>
 
@@ -171,5 +197,22 @@
   <footer>
     <p>Gitチュートリアル &mdash; はじめての Git &amp; GitHub</p>
   </footer>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const code = button.previousElementSibling.innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.innerText;
+          button.innerText = 'Copied!';
+          button.classList.add('copied');
+          setTimeout(() => {
+            button.innerText = originalText;
+            button.classList.remove('copied');
+          }, 2000);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
