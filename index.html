@@ -4,172 +4,49 @@
   <meta charset="UTF-8">
   <title>Gitチュートリアル - ホーム</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f5f7;
-      color: #1f2933;
-    }
-    header {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #fff;
-      padding: 24px 16px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
-    }
-    header h1 {
-      margin: 0 0 8px;
-      font-size: 1.8rem;
-    }
-    header p {
-      margin: 0;
-      opacity: 0.9;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      padding: 12px 16px;
-      background: #ffffff;
-      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav a {
-      text-decoration: none;
-      color: #1d4ed8;
-      font-size: 0.95rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-    }
-    nav a:hover {
-      background: #eff6ff;
-      border-color: #bfdbfe;
-    }
-    main {
-      max-width: 960px;
-      margin: 24px auto 40px;
-      padding: 0 16px;
-    }
-    .section-title {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-    .section-subtitle {
-      font-size: 0.95rem;
-      color: #6b7280;
-      margin-bottom: 16px;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 12px;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 16px 18px;
-      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
-      border: 1px solid #e5e7eb;
-    }
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 1rem;
-    }
-    .card p {
-      margin: 0 0 8px;
-      font-size: 0.9rem;
-      color: #4b5563;
-    }
-    .command {
-      display: inline-block;
-      background: #111827;
-      color: #f9fafb;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.85rem;
-      margin-top: 4px;
-    }
-    .command-block {
-      display: block;
-      background: #111827;
-      color: #e5e7eb;
-      padding: 12px 16px;
-      border-radius: 8px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.9rem;
-      margin: 8px 0 12px;
-      overflow-x: auto;
-    }
-    .step {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
-      border: 1px solid #e5e7eb;
-      border-left: 4px solid #2563eb;
-    }
-    .step h4 {
-      margin: 0 0 8px;
-      font-size: 1.05rem;
-      color: #1d4ed8;
-    }
-    .step p {
-      margin: 0 0 8px;
-      font-size: 0.9rem;
-      color: #4b5563;
-    }
-    .step p:last-child {
-      margin-bottom: 0;
-    }
-    .workflow-intro {
-      font-size: 0.95rem;
-      color: #4b5563;
-      margin-bottom: 20px;
-      padding: 12px 16px;
-      background: #eff6ff;
-      border-radius: 8px;
-      border: 1px solid #bfdbfe;
-    }
-    footer {
-      text-align: center;
-      padding: 16px;
-      color: #9ca3af;
-      font-size: 0.8rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Gitチュートリアル</h1>
-    <p>このページでは、Gitの基本コマンドとワークフローをざっくり確認できます。</p>
+    <div class="header-inner">
+      <span class="badge">Git Tutorial</span>
+      <h1>Gitチュートリアル</h1>
+      <p>Gitの基本コマンドとワークフローを、ハンズオン形式で学べます。</p>
+    </div>
   </header>
 
+  <nav>
+    <a href="#commands">よく使うコマンド</a>
+    <a href="#collaboration">コラボレーション</a>
+    <a href="#workflow">実践ワークフロー</a>
+  </nav>
+
   <main>
-    <section>
-      <h2 class="section-title">1. よく使うGitコマンド</h2>
-      <p class="section-subtitle">まずはレポジトリの状態確認・差分確認など、日常的によく使うコマンドです。</p>
+    <!-- Section 1 -->
+    <section id="commands">
+      <div class="section-header">
+        <span class="section-number">1</span>
+        <h2 class="section-title">よく使うGitコマンド</h2>
+      </div>
+      <p class="section-subtitle">レポジトリの状態確認・差分確認など、日常的によく使うコマンドです。</p>
 
       <div class="card-grid">
         <article class="card">
+          <span class="card-icon">🔍</span>
           <h3>現在の状態を確認する</h3>
           <p>変更されたファイルやコミットされていないファイルを確認します。</p>
           <span class="command">git status</span>
         </article>
 
         <article class="card">
+          <span class="card-icon">📄</span>
           <h3>差分を確認する</h3>
           <p>どの行が変更されたか、コミット前に確認します。</p>
           <span class="command">git diff</span>
         </article>
 
         <article class="card">
+          <span class="card-icon">✏️</span>
           <h3>直前のコミットを修正する</h3>
           <p>コミットメッセージの修正やファイルの追加漏れに使います。</p>
           <span class="command">git commit --amend</span>
@@ -177,62 +54,75 @@
       </div>
     </section>
 
-    <section>
-      <h2 class="section-title">2. コラボレーションのための操作</h2>
+    <!-- Section 2 -->
+    <section id="collaboration">
+      <div class="section-header">
+        <span class="section-number">2</span>
+        <h2 class="section-title">コラボレーションのための操作</h2>
+      </div>
       <p class="section-subtitle">GitHubを使った開発でよく出てくるキーワードです。</p>
 
       <div class="card-grid">
         <article class="card">
+          <span class="card-icon">⬇️</span>
           <h3>リモートの変更を取り込む</h3>
           <p>GitHub上の最新の変更をローカルに取り込みます。</p>
           <span class="command">git pull</span>
         </article>
 
         <article class="card">
+          <span class="card-icon">🔀</span>
           <h3>ブランチをマージする</h3>
           <p>別ブランチで行った作業を現在のブランチに統合します。</p>
           <span class="command">git merge</span>
         </article>
 
         <article class="card">
+          <span class="card-icon">⚡</span>
           <h3>コンフリクト（競合）</h3>
-          <p>同じ場所を複数人が編集したときに発生する「競合」のことです。</p>
-          <p>マージ時に手動で解決します。</p>
+          <p>同じ場所を複数人が編集したときに発生する「競合」のことです。マージ時に手動で解決します。</p>
         </article>
 
         <article class="card">
+          <span class="card-icon">🚀</span>
           <h3>Pull Request と GitHub Flow</h3>
-          <p>GitHubでは、ブランチで作業 → Pull Request 作成 → レビュー → マージ、という流れをよく使います。</p>
-          <p>この一連の流れを「GitHub Flow」と呼びます。</p>
+          <p>ブランチで作業 → PR作成 → レビュー → マージ、という一連の流れを「GitHub Flow」と呼びます。</p>
         </article>
       </div>
     </section>
 
-    <section>
-      <h2 class="section-title">3. このチュートリアルで使った流れ（GitHubにプッシュまで）</h2>
-      <p class="section-subtitle">チャットで実際に実行したコマンドを、手順の順番で習得できます。</p>
+    <!-- Section 3 -->
+    <section id="workflow">
+      <div class="section-header">
+        <span class="section-number">3</span>
+        <h2 class="section-title">実践ワークフロー（GitHubにプッシュまで）</h2>
+      </div>
+      <p class="section-subtitle">チャットで実際に実行したコマンドを、手順の順番で確認できます。</p>
 
       <p class="workflow-intro">
-        初めてのリポジトリや「fatal: not a git repository」が出たときは、<strong>1. リポジトリの準備</strong>から。すでに Git が使える状態なら <strong>2. 変更をステージング</strong> から始めましょう。
+        初めてのリポジトリや「fatal: not a git repository」が出たときは、<strong>ステップ 1</strong> から。すでに Git が使える状態なら <strong>ステップ 3</strong> から始めましょう。
       </p>
 
       <div class="step">
-        <h4>1. 現在の状態を確認する</h4>
+        <span class="step-label">Step 1</span>
+        <h4>現在の状態を確認する</h4>
         <p>まず、今いるフォルダが Git 管理されているか、どんな変更があるかを確認します。</p>
         <code class="command-block">git status</code>
-        <p>「fatal: not a git repository」と出た場合は、このフォルダにはまだ Git が入っていません。次の「リポジトリの準備」へ。</p>
+        <p>「fatal: not a git repository」と出た場合は、このフォルダにはまだ Git が入っていません。次のステップへ進みましょう。</p>
       </div>
 
       <div class="step">
-        <h4>2. リポジトリを用意する（必要なときだけ）</h4>
-        <p>初めてこのフォルダで Git を使うときや、.git が壊れているときは、新しくリポジトリを作ります。</p>
+        <span class="step-label">Step 2</span>
+        <h4>リポジトリを用意する（必要なときだけ）</h4>
+        <p>初めてこのフォルダで Git を使うときや、<code class="command">.git</code> が壊れているときは、新しくリポジトリを作ります。</p>
         <code class="command-block">git init</code>
         <p>「Initialized empty Git repository in ...」と出ればOK。以降、<code class="command">git status</code> が使えるようになります。</p>
       </div>
 
       <div class="step">
-        <h4>3. 変更をステージングする</h4>
-        <p>コミットに含めたいファイルを「ステージング」します。全部まとめて追加する場合は次のコマンドです。</p>
+        <span class="step-label">Step 3</span>
+        <h4>変更をステージングする</h4>
+        <p>コミットに含めたいファイルを「ステージング」します。全部まとめて追加する場合:</p>
         <code class="command-block">git add -A</code>
         <p>特定のファイルだけ追加する場合:</p>
         <code class="command-block">git add index.html</code>
@@ -240,41 +130,46 @@
       </div>
 
       <div class="step">
-        <h4>4. コミットする</h4>
-        <p>ステージングした内容を、ひとまとまりの履歴として保存します。<code>-m</code> のあとにメッセージを書きます。</p>
+        <span class="step-label">Step 4</span>
+        <h4>コミットする</h4>
+        <p>ステージングした内容を、ひとまとまりの履歴として保存します。<code class="command">-m</code> のあとにメッセージを書きます。</p>
         <code class="command-block">git commit -m "最初のホームページを作成"</code>
         <p>「1 file changed」のように表示されれば、コミット完了です。</p>
       </div>
 
       <div class="step">
-        <h4>5. ブランチ名を確認する（プッシュ前に）</h4>
+        <span class="step-label">Step 5</span>
+        <h4>ブランチ名を確認する（プッシュ前に）</h4>
         <p>GitHub にプッシュするとき、通常は <code class="command">main</code> または <code class="command">master</code> ブランチを使います。どちらか確認します。</p>
         <code class="command-block">git branch</code>
-        <p><code>* main</code> なら main、<code>* master</code> なら master にプッシュします。</p>
+        <p><code class="command">* main</code> なら main、<code class="command">* master</code> なら master にプッシュします。</p>
       </div>
 
       <div class="step">
-        <h4>6. リモート（GitHub）を登録する</h4>
+        <span class="step-label">Step 6</span>
+        <h4>リモート（GitHub）を登録する</h4>
         <p>GitHub でリポジトリを作成したあと、その URL を「origin」という名前で登録します。</p>
         <code class="command-block">git remote add origin https://github.com/あなたのユーザー名/git_tutorial.git</code>
-        <p>※「あなたのユーザー名」と「git_tutorial」は、自分の GitHub のユーザー名とリポジトリ名に置き換えます。すでに登録済みの場合は不要です。</p>
+        <p>※「あなたのユーザー名」と「git_tutorial」は自分のものに置き換えます。すでに登録済みの場合は不要です。</p>
       </div>
 
       <div class="step">
-        <h4>7. GitHub にプッシュする</h4>
-        <p>ローカルのコミットを GitHub に送ります。<code>-u origin main</code> で「今後は origin の main にプッシュする」と覚えさせます。</p>
+        <span class="step-label">Step 7</span>
+        <h4>GitHub にプッシュする</h4>
+        <p>ローカルのコミットを GitHub に送ります。<code class="command">-u origin main</code> で「今後は origin の main にプッシュする」と覚えさせます。</p>
         <code class="command-block">git push -u origin main</code>
-        <p>ブランチが <code class="command">master</code> の場合は <code class="command-block" style="margin-top:4px;">git push -u origin master</code> にします。</p>
+        <p>ブランチが <code class="command">master</code> の場合は <code class="command">git push -u origin master</code> にします。</p>
       </div>
 
-      <p class="section-subtitle" style="margin-top: 24px;">
-        この流れができれば、ファイルの更新 → <code class="command">git add -A</code> → <code class="command">git commit -m "メッセージ"</code> → <code class="command">git push</code> の繰り返しで、いつでも GitHub を更新できます。
-      </p>
+      <div class="summary-box">
+        <strong>この流れをマスターしたら...</strong>
+        ファイルの更新 → <code class="command">git add -A</code> → <code class="command">git commit -m "メッセージ"</code> → <code class="command">git push</code> の繰り返しで、いつでも GitHub を更新できます。
+      </div>
     </section>
   </main>
 
   <footer>
-    Gitチュートリアル / 最初のホームページサンプル
+    <p>Gitチュートリアル &mdash; はじめての Git &amp; GitHub</p>
   </footer>
 </body>
 </html>
